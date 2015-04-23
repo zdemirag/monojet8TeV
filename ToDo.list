@@ -1,0 +1,11 @@
+Functionality:
+-------------
+Figure out how these flat trees are made
+Figure out the weights (this is quite important)
+Figure out the cuts and code them properly in a seperate code
+
+Style:
+-----
+Make the plot_pull function better, avoid repetition
+Make the observables configurable, like in marco's example
+Make script take in input arguments
