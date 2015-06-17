@@ -1,11 +1,18 @@
 Functionality:
 -------------
 Figure out how these flat trees are made
-Figure out the weights (this is quite important)
-Figure out the cuts and code them properly in a seperate code
+
+Store the fits to Zll/Wlv and Bkg, in control regions
+then take the ratio of these fits. 
+
+Of you can do this bin by bin as well. Try that too
+do both of the plots..
+
+Make a table friendly yield print out
+
+Make the gen level plots for Z and W.
 
 Style:
 -----
 Make the plot_pull function better, avoid repetition
-Make the observables configurable, like in marco's example
 Make script take in input arguments

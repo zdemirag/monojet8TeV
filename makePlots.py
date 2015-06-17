@@ -16,6 +16,24 @@ print "Starting Plotting Be Patient!"
 
 lumi = 19.72
 
+def get_ratio(channel, Variable,added, data, bin):
+    sf = []
+    print  channel,"All bkg: ", added.GetBinContent(0)
+    #Compute all MC except the Zll or Wln
+    print  channel, "Variable: ", Variable.GetBinContent(0)
+    added.Add(Variable,-1)
+    print  channel,"All bkg - Z or W: ", added.GetBinContent(0)
+    print  channel,"All data: ", data.GetBinContent(0)
+    #Subtract all background from data
+    data.Add(added,-1)
+    print  channel,"All data - bkg: ", data.GetBinContent(0)
+    #Divide remaining data with Z
+    data.Divide(Variable)
+    for i in range(bin):
+        i+=1
+        sf.append(data.GetBinContent(i))
+    return sf
+
 def plot_ratio(pull,data,mc,bin,xlabel):
 
     Pull = data
@@ -182,11 +200,21 @@ def plot_stack(channel, name,var, bin, low, high, ylabel, xlabel, setLog = False
     f1.Draw("same")
 
     c4.SaveAs(folder+'/Histo_' + name + '_'+channel+'.pdf')
-        
+
+    if channel is not 'signal':
+        #and (('Z' in var and 'Z' in channel) or ('W' in var and 'W' in channel) ):
+        if 'Z' in channel:
+            print channel," ratios for ",var,' :' , get_ratio('Zll',Variables['Zll'],added,data,bin)
+        if 'W' in channel:
+            print channel," ratios for ",var,' :' , get_ratio('Wln',Variables['Wlv'],added,data,bin)
+
     del Variables
     del var
     c4.IsA().Destructor( c4 )
     stack.IsA().Destructor( stack )
+
+
+
 
 arguments = {}
 #                = [var, bin, low, high, yaxis, xaxis, setLog]
@@ -197,8 +225,11 @@ arguments['jetpt']  = ['jetpt','jet1.pt()',17,150,1000,'Events/50 GeV','Leading 
 arguments['njets']  = ['njets','njets',3,1,4,'Events','Number of Jets',True]
 
 channel_list  = ['signal','Wln','Zll']
-variable_list = ['met','jetpt','njets','metRaw','genmet']
-processes = []
+#channel_list  = ['Wln']
+#variable_list = ['met','jetpt','njets','metRaw','genmet']
+processes     = []
+
+variable_list = ['met']
 
 for channel in channel_list:
     for var in variable_list:
