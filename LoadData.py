@@ -81,7 +81,6 @@ ordered_physics_processes = []
 for key, value in sorted(tmp.iteritems(), key=lambda (k,v): (v,k)):
 	ordered_physics_processes.append(key)
 
-
 def makeTrees(process,Channel):
 	Trees={}
 	if Channel == 'signal': Channel = ''
