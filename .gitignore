@@ -1,1 +1,4 @@
 *.pdf
+*.pyc
+control_region
+test
