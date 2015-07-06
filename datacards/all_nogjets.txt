@@ -1,0 +1,25 @@
+Combination of datacard_Wln.txt  datacard_Zll.txt  datacard_signal.txt
+imax 3 number of bins
+jmax 5 number of processes minus 1
+kmax 8 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes *    ch1  FAKE
+shapes *    ch2  FAKE
+shapes *    ch3  FAKE
+----------------------------------------------------------------------------------------------------------------------------------
+bin          ch1    ch2    ch3  
+observation  288.0  49.0   722.0
+----------------------------------------------------------------------------------------------------------------------------------
+bin                                ch1           ch1           ch1           ch1           ch1           ch1           ch2           ch2           ch2           ch2           ch2           ch2           ch3           ch3           ch3           ch3           ch3           ch3         
+process                            signal_higgs  Zll           others        Wlv           QCD           Zvv           signal_higgs  Zll           others        Wlv           QCD           Zvv           signal_higgs  Zll           others        Wlv           QCD           Zvv         
+process                            0             1             2             3             4             5             0             1             2             3             4             5             0             1             2             3             4             5           
+rate                               0.0000        1.0200        15.1330       258.3130      0.0000        0.0000        0.0000        62.1750       1.8540        1.0260        0.0000        0.0000        92.3010       0.3920        11.0290       126.4030      0.0000        618.2450    
+----------------------------------------------------------------------------------------------------------------------------------
+syst_WJets_norm         lnU        -             -             -             2.0           -             -             -             -             -             -             -             -             -             -             -             2.0           -             -           
+syst_Wln_bkg            lnN        -             1.02          1.02          -             1.02          -             -             -             -             -             -             -             -             -             -             -             -             -           
+syst_Wln_sig            lnN        -             -             -             1.02          -             -             -             -             -             -             -             -             -             -             -             -             -             -           
+syst_Zjets_norm         lnU        -             -             -             -             -             -             -             2.0           -             -             -             -             -             -             -             -             -             2.0         
+syst_Zll_bkg            lnN        -             -             -             -             -             -             -             -             1.02          -             -             -             -             -             -             -             -             -           
+syst_Zll_sig            lnN        -             -             -             -             -             -             -             1.02          -             -             -             -             -             -             -             -             -             -           
+syst_signal_bkg         lnN        -             -             -             -             -             -             -             -             -             -             -             -             -             1.02          1.02          -             -             -           
+syst_signal_sig         lnN        -             -             -             -             -             -             -             -             -             -             -             -             1.1           -             -             -             -             -           
